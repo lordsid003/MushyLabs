@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}MushyLabs{% endblock %}
+
+{% block navbar %}
+    <nav id="navbar">
+        <div class="items">
+            <div class="logo">
+                <img src="../static/images/mushrooms.png" alt="mushrooms">
+                <span>MushyLabs</span>
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laboratory">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                    <li class="menu" onclick="showSideBar()">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar">
+                <ul>
+                    <li onclick="closeSideBar()">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laboratory">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="about">
+        <div class="intro">
+            <div class="pre">
+                Binary Classification From Scratch
+            </div>
+            <div class="title">
+                A Binary classification ML model integrated with Flask.
+            </div>
+            <a href="https://www.github.com/lordsid003" target="_blank">
+                <button id="github">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="github_logo">
+                    <span>~ Siddharth Verma</span>
+                </button>
+            </a>
+        </div>
+        <div class="content">
+             <div class="title">
+                Technology Stack used:
+             </div>
+             <div class="tech-stack">
+                {% for i in range(1, 9) %}
+                    <div class="tech-group">
+                        <img src="../static/images/techstack/{{ i }}.png">
+                    </div>
+                {% endfor %}
+             </div>
+        </div>
+    </div>
+{% endblock %}

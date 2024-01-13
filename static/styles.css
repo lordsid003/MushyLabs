@@ -1,0 +1,1165 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Single+Day&display=swap');
+
+:root {
+    --logo-color: rgb(255, 69, 0);
+    --background-color: rgba(255, 255, 255, 0.5);
+    --active-tab-color: rgb(190, 21, 119);
+    --whitesmoke: rgb(255, 255, 255);
+    --form-background-color: rgba(177, 177, 177, 0.3);
+    --black: rgb(0, 0, 0);
+    --gray: rgb(128, 128, 128);
+    --form-theme: rgb(255, 165, 0);
+    --poisonous-theme: rgb(255, 0, 0);
+    --dark-blue: rgba(0, 98, 255, 0.9);
+    --light-blue: rgba(97, 181, 255, 0.9);
+    --indigo: rgba(74, 0, 224, 0.9);
+    --violet: rgba(142, 45, 226, 0.9);
+    --peach: rgba(255, 94, 98, 1);
+    --orange: rgba(255, 153, 102, 1);
+    --light-green:  rgba(75, 236, 75, 0.95);
+    --dark-green: rgba(0, 128, 0, 0.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#navbar {
+    width: 100%;
+    display: flex;
+    min-height: 4rem;
+    align-items: center;
+}
+
+#navbar .items {
+    display: flex;
+    align-items: center;
+}
+
+#navbar .items .logo {
+    margin-left: 1rem;
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+#navbar .items .logo img {
+    width: 35px;
+    height: auto;
+    text-shadow: 0 0 5px var(--logo-color);
+}
+
+#navbar .items .logo span {
+    font-size: 2rem;
+    color: var(--logo-color);
+    font-family: 'Single Day', cursive;
+}
+
+#navbar .items .tabs {
+    position: absolute;
+    right: 0;
+    margin-right: 3rem;
+}
+
+#navbar .items .sidebar {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70vw;
+    z-index: 999;
+    background-color: var(--background-color);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+#navbar .items .tabs ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#navbar .items .sidebar ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+#navbar .items .sidebar ul li {
+    width: 100%;
+}
+
+#navbar .items .sidebar ul li a {
+    width: 100%;
+}
+
+#navbar .items .tabs ul li a,
+#navbar .items .sidebar ul li a  {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+#navbar .items .tabs ul .menu,
+#navbar .items .sidebar ul .menu {
+    color: var(--black);
+    cursor: pointer;
+    display: none;
+}
+
+#navbar .items .tabs ul .menu span {
+    font-size: 2rem;
+}
+
+#navbar .items .tabs ul .active a,
+#navbar .items .sidebar ul .active a {
+    color: var(--active-tab-color);
+}
+
+#navbar .items .tabs ul .active,
+#navbar .items .sidebar ul .active {
+    border-bottom: 2px solid var(--active-tab-color);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .intro {
+    display: block;
+    width: 100vw;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.container .intro .image #laboratory {
+    width: 100vw;
+    height: auto;
+}
+
+.container .intro .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: calc(5rem + 5vw);
+    left: 0;
+    margin-left: 2vw;
+}
+
+.container .intro .content .content-1,
+.container .intro .content .content-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    background-color: rgba(6, 6, 6, 0.4);
+    padding: 3vw;
+    width: 40vw;
+    font-size: 1.5vw;
+    border-right: 1px solid var(--whitesmoke);
+    border-top: 1px solid var(--whitesmoke);
+}
+
+.container .intro .content .content-1 .title,
+.container .intro .content .content-2 .title {
+    color: aqua;
+}
+
+.container .intro .content .content-1 .body,
+.container .intro .content .content-2 .body {
+    color: var(--whitesmoke);
+}
+
+.container .group {
+    display: flex;
+    gap: 2vw;
+    width: 100vw;
+    align-items: center;
+    background-color: var(--whitesmoke);
+    height: fit-content;
+    margin-top: -5px;
+    overflow: hidden;
+}
+
+.container .group .image {
+    width: 50vw;
+}
+
+.container .group .image #equipment {
+    width: 50vw;
+}
+
+.container .group .content {
+    font-size: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw 1.5vw;
+    justify-content: left;
+    width: 50vw;
+    margin-left: 2vw;
+}
+
+.container .group .content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.container .group .content li span {
+    color: var(--active-tab-color);
+    font-weight: 400;
+}
+
+.container .dataset .content .title {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.container .dataset .content .title span {
+    font-size: 2vw;
+}
+
+.container .dataset .content ul {
+    list-style-type: none;
+}
+
+.container .dataset .content ul li .accuracy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    background: linear-gradient(90deg, var(--indigo) 0%, var(--violet) 100%); 
+    box-shadow: 0 0 2px var(--violet);
+    width: 55%;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: var(--whitesmoke);
+}
+
+.container .dataset .content ul li .accuracy span {
+    font-size: 2vw;
+    color: var(--whitesmoke);
+}
+
+.container .lab-button {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1vw;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2vw;
+    background: linear-gradient(90deg, var(--peach) 0%, var(--orange) 100%);
+    box-shadow: 0 0 3px var(--orange);
+    border-radius: 1vw;
+    align-self: center;
+    margin-top: 2.5vw;
+    margin-bottom: 1.5vw;
+    font-size: 1.5vw;
+    color: var(--black);
+}
+
+.container .lab-button span {
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.container .lab-button #explore {
+    padding: 1vw 1.5vw;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--whitesmoke);
+    border-radius: 0.5vw;
+    font-size: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    color: var(--whitesmoke);
+}
+
+.container .lab-button a {
+    text-decoration: none;
+}
+
+.container .lab-button #explore:hover,
+.container .lab-button #explore:focus {
+    background-color: var(--whitesmoke);
+    color: var(--black);
+    box-shadow: 0 0 3px var(--whitesmoke);
+}
+
+.container .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+}
+
+.container .info .body {
+    display: flex;
+    gap: 2vw;
+}
+
+.container .info .body .info-group {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 174, 255, 0.171);
+    padding: 0.5vw 2vw 0.5vw 2vw;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 0 5px rgba(0, 174, 255, 0.3);
+}
+
+.container .info .body .info-group .logo {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+.container .info .body .info-group .logo #backend {
+    width: 70%;
+}
+
+.container .info .body .info-group .logo img {
+    width: 100%;
+    filter: drop-shadow(0 0 3px var(--gray));
+}
+
+.container .info .body .info-group .content {
+    align-self: end;
+}
+
+.container .info .body .info-group .content span {
+    color: var(--active-tab-color);
+    font-size: 1.5vw;
+}
+
+#form .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    align-items: center;
+    min-height: 100vh;
+    height: fit-content;
+    justify-content: flex-start;
+    padding: 2vw;
+    background-color: var(--form-background-color);
+}
+
+#form .wrapper .header {
+    width: 90%;
+    font-size: 1.3vw;
+    color: var(--black);
+    font-weight: bold;
+    margin-left: 0;
+}
+
+#form .wrapper .main {
+    width: 100vw;
+    display: flex;
+    gap: 3vw;
+    justify-content: center;
+    padding: 0 2vw;
+    align-items: flex-start;
+}
+
+#form .wrapper .main .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    width: 50vw;
+    justify-content: center;
+    padding: 2vw;
+    overflow: hidden;
+}
+
+#form .wrapper .main .form-container .group {
+    display: flex;
+    width: 100%;
+    gap: 0.8vw;
+    align-items: center;
+    font-size: 1.3vw;
+}
+
+#form .wrapper .main .form-container .group label {
+    width: 50%;
+}
+
+#form .wrapper .main .form-container .group .label {
+    width: 70%;
+}
+
+#form .wrapper .main .form-container .group select {
+    width: 100%;
+    padding: 0.5vw;
+    cursor: pointer;
+    font-size: 1.3vw;
+    outline: none;
+    border: 1px solid var(--form-theme);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#form .wrapper .main .form-container .group select:focus,
+#form .wrapper .main .form-container .group select:hover {
+    background-color: var(--whitesmoke);
+    box-shadow: 0 0 2px var(--form-theme);
+}
+
+#form .wrapper .main .form-container .group select option {
+    font-size: 1.3vw;
+    width: 100%;
+}
+
+#form .wrapper .main .form-container .group input {
+    cursor: pointer;
+    border: 1px solid var(--form-theme);
+}
+
+#form .wrapper #predict {
+    padding: 1.2vw;
+    width: 18vw;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 165, 0, 0.9);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 5px var(--form-theme);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--whitesmoke);
+    cursor: pointer;
+    font-size: 1.3vw;
+    margin-bottom: 1.5rem;
+}
+
+#form .wrapper #predict:hover {
+    background-color: rgba(255, 165, 0, 1);
+}
+
+.results-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.results-container .plots {
+    padding: 2vw 0;
+    width: 52vw;
+    margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.results-container .plots .bar-container, 
+.results-container .plots .chart-container {
+    position: relative;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw;
+}
+
+.results-container .plots .bar-container #mushroom_basket,
+.results-container .plots .bar-container #mushroom_trees {
+    box-shadow: 0 0 5px var(--gray);
+}
+
+.results-container .plots .chart-container {
+    width: 25vw;
+}
+
+.results-container .plots .chart-container .donut-plot .text {
+    position: relative;
+    left: 45%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5vw;
+    color: var(--poisonous-theme);
+}
+
+.results-container .plots .chart-container .donut-plot .text span {
+    font-size: 1vw;
+}
+
+.results-container .plots .chart-container .donut-analysis .title,
+.results-container .plots .bar-container .bar-analysis .title {
+    color: var(--form-theme);
+}   
+
+.results-container .plots .chart-container .donut-analysis p {
+    width: 100%;
+}
+
+.results-container .plots .bar-container .bar-analysis p,
+.results-container .plots .bar-container .bar-analysis .title {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.results-container .plots .body #p {
+    color: var(--poisonous-theme);
+    font-size: 1.5vw;
+}
+
+.results-container .plots .body #e {
+    color: var(--dark-green);
+    font-size: 1.5vw;
+}
+
+.results-container .plots .report-images .bar-container img {
+    cursor: pointer;
+}
+
+.results-container .report {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 2vw 1vw;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.results-container .report .report-group {
+    display: flex;
+    width: 45%;
+    gap: 1.5vw;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 10vw;
+    padding: 1vw 2vw;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 1vw;
+}
+
+.results-container .report .report-group .logo {
+    display: flex;
+    gap: 0.5vw;
+    width: 40%;
+    align-items: center;
+}
+
+.results-container .report .report-group .logo .image {
+    padding: 0.2vw;
+    border-radius: 100%;
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.results-container .report .report-group .logo .image span {
+    color: var(--whitesmoke);
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.results-container .report .report-group .logo {
+    font-size: 1vw;
+}
+
+.results-container .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.results-container .features .report-group {
+    background: linear-gradient(to right, #f80759, #bc4e9c); 
+    box-shadow: 0 0 5px #bc4e9c;
+    color: var(--whitesmoke);
+    font-size: 2vw;
+}
+
+.results-container .features .report-group .logo .image span {
+    font-size: 2vw;
+}
+
+.results-container .features .report-group:nth-child(3n-1) {
+    background: linear-gradient(90deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+    box-shadow: 0 0 5px var(--light-blue);
+}
+
+.results-container .features .report-group:nth-child(3n+1) {
+    background: linear-gradient(90deg, var(--indigo) 0%, var(--violet) 100%); 
+    box-shadow: 0 0 3px var(--violet);
+}
+
+.results-container .report .features .unsafe {
+    background: linear-gradient(90deg, var(--peach) 0%, var(--orange) 100%);
+    box-shadow: 0 0 5px var(--orange);
+    font-size: 1.3vw;
+}
+
+.results-container .report .features .unsafe .content .title {
+    color: var(--poisonous-theme);
+    text-shadow: 0 0 1px var(--poisonous-theme);
+}
+
+.results-container .report .features .safe {
+    background: linear-gradient(to right, var(--dark-green), var(--light-green));
+    box-shadow: 0 0 5px var(--light-green) ;
+    font-size: 1.3vw;
+}
+
+.results-container .report .features .safe .content .title {
+    color: var(--dark-green);
+    text-shadow: 0 0 1px var(--dark-green);
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100vw;
+    padding: 1vw 5vw;
+}
+
+.about .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.about .intro .pre {
+    font-size: 2vw;
+    color: var(--violet);
+}
+
+.about .intro .title {
+    font-size: 1.5vw;
+}
+
+.about .intro a {
+    text-decoration: none;
+}
+
+.about .intro a #github {
+    display: flex;
+    gap: 1vw;
+    background: linear-gradient(90deg, var(--peach) 0%, var(--orange) 100%);
+    box-shadow: 0 0 5px var(--orange);
+    font-size: 1.3vw;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    outline: none;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: var(--whitesmoke);
+}
+
+.about .intro a #github:hover,
+.about .intro a #github:focus {
+    background: linear-gradient(90deg, var(--indigo) 0%, var(--violet) 100%); 
+    box-shadow: 0 0 3px var(--violet);
+}
+
+.about .intro a #github img {
+    width: 70px;
+}
+
+.about .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    padding: 2vw;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.about .content .title {
+    font-size: 2vw;
+}
+
+.about .content .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    width: 100%;
+}
+
+.about .content .tech-stack .tech-group {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .content .tech-stack .tech-group img {
+    width: 70%;
+}
+
+.about .content .tech-stack .tech-group:nth-child(2) img {
+    width: 110%;
+}
+
+.about .content .tech-stack .tech-group:nth-child(3) img {
+    width: 80%;
+}
+
+.about .content .tech-stack .tech-group:nth-child(4) img {
+    width: 60%;
+}
+
+.about .content .tech-stack .tech-group:nth-child(5) img,
+.about .content .tech-stack .tech-group:nth-child(6) img {
+    width: 100%;
+}
+
+.about .content .tech-stack .tech-group:nth-child(7) img {
+    width: 80%;
+}
+
+@media screen and (max-width: 580px) {
+    #navbar .items .tabs ul li a {
+        display: none;
+    }
+    #navbar .items .tabs ul .menu {
+        display: block;
+    }
+    #navbar .items .tabs ul .menu span {
+        font-size: 1.5rem;
+    }
+    #navbar .items .tabs {
+        margin-right: 1rem;
+    }
+    #navbar .items .logo span {
+        font-size: 1.5rem;
+    }
+    .container .lab-button {
+        width: 60%;
+        padding: 4vw;
+        font-size: 2vw;
+    }
+    .container .lab-button span {
+        font-size: 2.5vw;
+    }
+    .container .lab-button #explore {
+        font-size: 2vw;
+    }
+    .container .info {
+        gap: 4vw;
+        margin-bottom: 1rem;
+    }
+    .container .info .body {
+        flex-direction: column;
+        gap: 3vw;
+    }
+    .container .info .title h2{
+        font-size: 3vw;
+    }
+    .container .info .body .info-group {
+        width: 75vw;
+        padding: 1vw 5vw 1vw 2vw;
+        flex-direction: row;
+        gap: 1vw;
+        align-items: center;
+        justify-content: center;
+        height: 25vw;
+    }
+    .container .info .body .info-group .logo {
+        width: 100%;
+    }
+    .container .info .body .info-group .logo img {
+        width: 80%;
+    }
+    .container .info .body .info-group .logo #backend {
+        width: 60%;
+    }
+    .container .info .body .info-group .content span {
+        font-size: 3vw;
+    }
+    .container .info .body .info-group .content {
+        font-size: 2vw;
+        align-self: center;
+    }
+    #form .wrapper {
+        gap: 3vw;
+    }
+    #form .wrapper .header {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vw;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    #form .wrapper .main .form-container {
+        width: 90vw;
+        gap: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group label {
+        width: 50%;
+    }  
+    #form .wrapper .main .form-container .group select {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group select option {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group .label {
+        width: 60%;
+    }
+    #form .wrapper #predict {
+        width: 40vw;
+        padding: 2.5vw;
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+    }
+    .results-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
+    }
+    .results-container .plots {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3vw;
+    }
+    .results-container .plots .chart-container  {
+        width: 70vw;
+        padding: 0.5vw;
+    }
+    .results-container .plots .bar-container {
+        width: 90vw;
+        padding: 0.5vw;
+    }
+    .results-container .plots .report-images {
+        display: flex;
+        width: 100vw;
+        justify-content: space-around;
+    }
+    .results-container .plots .report-images .bar-container{
+        width: fit-content;
+    }
+    .results-container .plots .report-images .bar-container img{
+        width: 40vw;
+    }
+    .results-container .plots .chart-container .donut-plot .text,
+    .results-container .plots .body #p,
+    .results-container .plots .body #e {
+        font-size: 4vw;
+    }
+    .results-container .plots .chart-container .donut-plot .text {
+        width: 50%;
+    }
+    .results-container .plots .chart-container .donut-plot .text span {
+        font-size: 2vw;
+    }
+    .results-container .plots .lab-results {
+        text-align: left;
+        margin-left: 5vw;
+        width: 100%;
+        overflow: hidden;
+    }
+    .results-container .plots .lab-results .title,
+    .results-container .plots .lab-results .body {
+        width: 80%;
+    }
+    .results-container .plots .chart-container .donut-analysis .title,
+    .results-container .plots .bar-container .bar-analysis .title,
+    .results-container .plots .lab-results .title  {
+        font-size: 4vw;
+    }
+    .results-container .plots .chart-container .donut-analysis p,
+    .results-container .plots .bar-container .bar-analysis p,
+    .results-container .plots .lab-results .body {
+        font-size: 2.5vw;
+    }
+    .results-container .plots .bar-container #mushroom_basket,
+    .results-container .plots .bar-container #mushroom_trees {
+        height: 30vw;
+        width: 45vw;
+    }
+    .results-container .features .report-group {
+        font-size: 3vw;
+    }
+    .results-container .features .report-group .logo .image span {
+        font-size: 3vw;
+    }
+    .results-container .features .report-group .logo {
+        width: 45%;
+        font-size: 1.5vw;
+        gap: 1vw;
+    }
+    .results-container .report .report-group {
+        width: 45%;
+        padding: 5vw;
+        gap: 3vw;
+    }
+    .results-container .report .features {
+        justify-content: space-around;
+        row-gap: 3vw;
+        margin-bottom: 1.5rem;
+    }
+    .results-container .report .features .unsafe .content,
+    .results-container .report .features .safe .content {
+        font-size: 1.5vw;
+    }
+    .results-container .report .features .unsafe .content .title,
+    .results-container .report .features .safe .content .title {
+        font-size: 3vw;
+        text-shadow: none;
+        font-weight: bold;
+    }
+    .about {
+        padding: 2vw 10vw;
+        gap: 2.5vw;
+    }
+    .about .intro {
+        gap: 2.5vw;
+    }
+    .about .intro .pre {
+        font-size: 3vw;
+    }
+    .about .intro .title {
+        font-size: 2vw;
+    }
+    .about .intro a #github {
+        font-size: 2vw;
+        padding: 2.5vw;
+    }
+    .about .intro a #github img {
+        width: 40px;
+    }
+    .about .content {
+        gap: 3vw;
+    }
+    .about .content .title {
+        font-size: 3vw;
+    }
+    .about .content .tech-stack {
+        width: 100%;
+        gap: 3vw;
+    }
+    .about .content .tech-stack .tech-group {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #navbar .items .tabs ul li a {
+        display: none;
+    }
+    #navbar .items .tabs ul .menu {
+        display: block;
+    }
+    #navbar .items .tabs ul .menu span {
+        font-size: 1.5rem;
+    }
+    #navbar .items .tabs {
+        margin-right: 1rem;
+    }
+    #navbar .items .logo span {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 580px) and (max-width: 1000px) {
+    #navbar .items .tabs ul li a {
+        display: none;
+    }
+    #navbar .items .tabs ul .menu {
+        display: block;
+    }
+    #navbar .items .tabs ul .menu span {
+        font-size: 1.5rem;
+    }
+    #navbar .items .tabs {
+        margin-right: 1rem;
+    }
+    #navbar .items .logo span {
+        font-size: 1.5rem;
+    }
+    .container .lab-button {
+        width: 60%;
+        padding: 2.5vw;
+    }
+    #form .wrapper {
+        gap: 3vw;
+    }
+    #form .wrapper .header {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5vw;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    #form .wrapper .main .form-container {
+        width: 90vw;
+        gap: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group label {
+        width: 50%;
+    }  
+    #form .wrapper .main .form-container .group select {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group select option {
+        font-size: 2.5vw;
+    }
+    #form .wrapper .main .form-container .group .label {
+        width: 60%;
+    }
+    #form .wrapper #predict {
+        width: 40vw;
+        padding: 2.5vw;
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+    }
+    .results-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+    .results-container .plots {
+        left: 0;
+        width: 90%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 0.5vw;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .results-container .plots .chart-container  {
+        width: 40vw;
+        padding: 0.5vw;
+    }
+    .results-container .plots .bar-container {
+        width: 48vw;
+        padding: 0.5vw;
+        align-self: flex-end;
+    }
+    .results-container .plots .report-images {
+        display: flex;
+        width: 100vw;
+        justify-content: space-around;
+    }
+    .results-container .plots .report-images .bar-container img{
+        width: 43vw;
+    }
+    .results-container .plots .chart-container .donut-plot .text,
+    .results-container .plots .body #p,
+    .results-container .plots .body #e {
+        font-size: 4vw;
+    }
+    .results-container .plots .chart-container .donut-plot .text {
+        width: 50%;
+    }
+    .results-container .plots .chart-container .donut-plot .text span {
+        font-size: 2vw;
+    }
+    .results-container .plots .lab-results {
+        text-align: left;
+        margin-left: 5vw;
+        width: 80%;
+        overflow: hidden;
+    }
+    .results-container .plots .lab-results .title,
+    .results-container .plots .lab-results .body {
+        width: 80%;
+    }
+    .results-container .plots .chart-container .donut-analysis .title,
+    .results-container .plots .bar-container .bar-analysis .title,
+    .results-container .plots .lab-results .title  {
+        font-size: 4vw;
+    }
+    .results-container .plots .chart-container .donut-analysis p,
+    .results-container .plots .bar-container .bar-analysis p,
+    .results-container .plots .lab-results .body {
+        font-size: 2.5vw;
+    }
+    .results-container .plots .bar-container #mushroom_basket,
+    .results-container .plots .bar-container #mushroom_trees {
+        height: 30vw;
+        width: 45vw;
+    }
+    .results-container .features .report-group {
+        font-size: 3vw;
+    }
+    .results-container .features .report-group .logo .image span {
+        font-size: 3vw;
+    }
+    .results-container .features .report-group .logo {
+        width: 45%;
+        font-size: 1.5vw;
+        gap: 1vw;
+    }
+    .results-container .report .report-group {
+        width: 45%;
+        padding: 5vw;
+        gap: 3vw;
+    }
+    .results-container .report .features {
+        justify-content: space-around;
+        row-gap: 3vw;
+        margin-bottom: 1.5rem;
+    }
+    .results-container .report .features .unsafe .content,
+    .results-container .report .features .safe .content {
+        font-size: 1.5vw;
+    }
+    .results-container .report .features .unsafe .content .title,
+    .results-container .report .features .safe .content .title {
+        font-size: 3vw;
+        text-shadow: none;
+        font-weight: bold;
+    }
+}

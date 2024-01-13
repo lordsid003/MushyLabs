@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}LabResults{% endblock %}
+
+{% block navbar %}
+    <nav id="navbar">
+        <div class="items">
+            <div class="logo">
+                <img src="../static/images/mushrooms.png" alt="mushrooms">
+                <span>MushyLabs</span>
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                    <li class="menu" onclick="showSideBar()">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar">
+                <ul>
+                    <li onclick="closeSideBar()">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="results-container">
+        <div class="plots">
+            <div class="lab-results">
+                <h2 class="title">Lab Report</h2>
+                <p class="body">
+                    Detailed mushroom analysis and results are depicted as follows:
+                </p>
+            </div>
+            <div class="chart-container">
+                <div class="donut-plot">
+                    <div class="text">
+                        {{ api_data["Poisonous %"] }}% 
+                        <span>Poisonous</span>
+                    </div>
+                    <canvas id="doughnut"></canvas>
+                </div>
+               <div class="donut-analysis">
+                    <h2 class="title">
+                        Donut Chart Analysis
+                    </h2>
+                    <p class="body">
+                        Poisonous: <span id="p"> {{ api_data["Poisonous %"] }}% </span> <br>
+                        Edibility: <span id="e"> {{ api_data["edibility %"] }}% </span>  <br>
+                        This depicts the state of mushroom for consumption with circular proportions.
+                    </p>
+               </div>
+            </div>
+            <div class="bar-container">
+                <canvas id="bargraph"></canvas>
+                <div class="bar-analysis">
+                    <h2 class="title">
+                        Horizontal Bar Graph Analysis
+                    </h2>
+                    <p class="body">
+                        Poisonous: <span id="p"> {{ api_data["Poisonous %"] }}% </span> <br>
+                        Edibility: <span id="e"> {{ api_data["edibility %"] }}% </span>  <br>
+                        This depicts the state of mushroom for consumption with horizontal plots on a scale of 100.
+                    </p>
+               </div>
+            </div>
+            <div class="report-images">
+                <div class="bar-container">
+                    <img src="../static/images/mushroom_basket.jpg" alt="mushroom_basket" id="mushroom_basket">
+                </div>
+                <div class="bar-container">
+                    <img src="../static/images/mushroom_trees.jpg" alt="mushroom_trees" id="mushroom_trees">
+                </div>
+            </div>
+        </div>
+        <div class="report">
+            <div class="features">
+                {% for key, value in api_data.items() %}
+                    {% if key != "edibility %" %}
+                        {% if key == "prediction" and value == 0 %}
+                            <div class="report-group safe">
+                                <div class="logo">
+                                    <div class="image">
+                                        <span class="material-symbols-outlined">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    Prediction
+                                </div>
+                                <div class="content">
+                                    <h2 class="title">
+                                        Edible
+                                    </h2>
+                                    <p class="body">
+                                        Fit for consumption
+                                    </p>
+                                </div>
+                            </div>
+                        {% elif key == "prediction" and value == 1 %}
+                            <div class="report-group unsafe">
+                                <div class="logo">
+                                    <div class="image">
+                                        <span class="material-symbols-outlined">
+                                            skull
+                                        </span>
+                                    </div>
+                                    Prediction
+                                </div>
+                                <div class="content">
+                                    <h2 class="title">
+                                        Poisonous
+                                    </h2>
+                                    <p class="body">
+                                        Unfit for consumption
+                                    </p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="report-group">
+                                <div class="logo">
+                                    <div class="image">
+                                        <span class="material-symbols-outlined">
+                                            info
+                                        </span>
+                                    </div>
+                                    {{ key }}
+                                </div>
+                                <div class="content">
+                                    <p class="body">
+                                        {{ value }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const canvas_doughNut = document.querySelector('#doughnut');
+        const ctx_doughNut = canvas_doughNut.getContext("2d");
+
+        const canvas_barGraph = document.querySelector('#bargraph');
+        const ctx_barGraph = canvas_barGraph.getContext("2d");
+
+        let poisonous = "{{ api_data['Poisonous %'] }}";
+        let edible = "{{ api_data['edibility %'] }}";
+        // console.log(poisonous, edible);
+    
+        new Chart(ctx_doughNut, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Poisonous %',
+                    'Edible %'
+                ],
+                datasets: [{
+                    label: 'Mushroom analysis',
+                    data: [poisonous, edible],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctx_barGraph, {
+            type: 'bar',
+            data: {
+                labels: ['Poisonous %', 'Edible %'],
+                datasets: [{
+                    axis: 'y',
+                    label: 'Mushroom analysis',
+                    data: [poisonous, edible],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 2,
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 50,
+                            font: {
+                                size: 10
+                            }
+                        },
+                    }
+                },
+                indexAxis: 'y',
+            }
+        });
+
+    </script>
+{% endblock%}

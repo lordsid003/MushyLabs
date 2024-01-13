@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}MushyLabs{% endblock %}
+
+{% block navbar %}
+    <nav id="navbar">
+        <div class="items">
+            <div class="logo">
+                <img src="../static/images/mushrooms.png" alt="mushrooms">
+                <span>MushyLabs</span>
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laboratory">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                    <li class="menu" onclick="showSideBar()">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar">
+                <ul>
+                    <li onclick="closeSideBar()">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laboratory">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="intro">
+            <div class="image">
+                <img src="../static/images/laboratory.jpeg" alt="laboratory" id="laboratory">
+            </div>
+            <div class="content">
+                <div class="content-1">
+                    <h2 class="title">Laboratory Analysis</h2>
+                    <p class="body">Lab tests and researches on various varieties of mushrooms to examine their edibility.</p>
+                </div>
+                <div class="content-2">
+                    <h2 class="title">Scientific Research</h2>
+                    <p class="body">Advanced Bio-tech techniques used for research on different varieties of mushrooms.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="group">
+            <div class="image">
+                <img src="../static/images/lab.jpg" alt="lab" id="equipment">
+            </div>
+            <div class="content">
+                <h2 class="title">
+                    Mushrooms have Anti-Oxidant, Anti-Bacterial, Anti-Tumor and neuroprotective effects.
+                </h2>
+                <p class="body">
+                    Chemistry tells us that mushrooms are composed of various substances that have different structures, functions, and effects.
+                    <ul>
+                        <li><span>Phenolic compounds:</span> These are organic molecules that contain one or more hydroxyl groups attached to a benzene ring.</li>
+                        <li><span>Fatty acids and lipids:</span> These are organic molecules that consist of a hydrocarbon chain and a carboxyl group. They are important components of cell membranes and energy sources.</li>
+                        <li><span>Triterpenoids and sterols:</span> These are lipids that have a carbon skeleton of four or more fused rings.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="content">
+                <h2 class="title">
+                    Mushrooms: A Superfood for Health
+                </h2>
+                <p class="body">
+                    Nutritional analysis of mushrooms:
+                    <ul>
+                        <li>They are the only natural source of <span>Vitamin D</span> in the produce aisle, and some varieties can increase their vitamin D content by exposure to ultraviolet light.</li>
+                        <li>They are also rich in B vitamins, such as <span>riboflavin, niacin, and folate</span>, which help to provide energy and support metabolism, nervous system, and blood cell formation.</li>
+                        <li>Mushrooms are low in calories, fat, and carbs, but <span>high in protein and fiber</span>, making them a great choice for weight management and digestive health.</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="image">
+                <img src="../static/images/mushroom_info.jpg" alt="lab" id="equipment">
+            </div>
+        </div>
+
+        <div class="group dataset">
+            <div class="image">
+                <img src="../static/images/mushroom_model.jpg" alt="shiitake mushrooms" id="equipment">
+            </div>
+            <div class="content">
+                <h2 class="title">
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                    Insights and Info
+                </h2>
+                <p class="body">
+                    <ul>
+                        <li>
+                            The Mushroom Classification dataset for this model was originally contributed to the UCI Machine Learning repository nearly 30 years ago, yet serves as the base for modern mushroom analysis as <span>Mushroom Hunting (otherwise known as "Shrooming")</span> which is enjoying new peaks in popularity. 
+                        </li>
+                        <li>
+                            <div class="accuracy">
+                                Model Accuracy: <span>94.59%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="lab-button">
+            <p>
+                <span>Laboratory</span> <br> Analyzes the edibility percentage of a mushroom type based on selected parameters.
+            </p>
+            <a href="/laboratory"><button id="explore">Explore Laboratory!</button></a>
+        </div>
+
+        <div class="info">
+            <div class="title">
+                <h2>A Binary classification ML model embedded in a webpage</h2>
+            </div>
+
+            <div class="body">
+                <div class="info-group">
+                    <div class="logo">
+                        <img src="../static/images/Web.png" alt="web" id="backend">
+                    </div>
+                    <div class="content">
+                        <span>Website Composition: </span>Website packed with general information, designed with CSS and Js. Backend integration using Flask.
+                    </div>
+                </div>
+    
+                <div class="info-group">
+                    <div class="logo">
+                        <img src="../static/images/Research logo.png" alt="mushrooms">
+                    </div>
+                    <div class="content">
+                        <span>Research & Data: </span>Contains a broad study on benefits of consumption of mushrooms and their Nutritional values.
+                    </div>
+                </div>
+    
+                <div class="info-group">
+                    <div class="logo">
+                        <img src="../static/images/AI logo.png" alt="AI">
+                    </div>
+                    <div class="content">
+                        <span>AI: </span>ML model which predicts the percentage edibility of any variety of mushroom based on certain parameters.
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

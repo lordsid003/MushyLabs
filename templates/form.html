@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+
+{% block title %}MushyLabs{% endblock %}
+
+{% block navbar %}
+    <nav id="navbar">
+        <div class="items">
+            <div class="logo">
+                <img src="../static/images/mushrooms.png" alt="mushrooms">
+                <span>MushyLabs</span>
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                    <li class="menu" onclick="showSideBar()">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar">
+                <ul>
+                    <li onclick="closeSideBar()">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                experiment
+                            </span>
+                            Laboratory
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" id="form">
+        <div class="wrapper">
+            <p class="header">Select appropriate parameters to examine the percentage edibility of a mushroom type.</p>
+            <div class="main">
+                <div class="form-container">
+                    <div class="group">
+                            <label for="cap-shape">Cap-shape: </label>
+                            <select name="cap-shape" id="cap-shape">
+                                <option value="bell">Bell</option>
+                                <option value="conical">Conical</option>
+                                <option value="convex">Convex</option>
+                                <option value="flat">Flat</option>
+                                <option value="knobbed">Knobbed</option>
+                                <option value="sunken">Sunken</option>
+                            </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="cap-surface">Cap-surface: </label>
+                        <select name="cap-surface" id="cap-surface">
+                            <option value="fibrous">Fibrous</option>
+                            <option value="grooves">Grooves</option>
+                            <option value="scaly">Scaly</option>
+                            <option value="smooth">Smooth</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="cap-color">Cap-color: </label>
+                        <select name="cap-color" id="cap-color">
+                            <option value="brown">Brown</option>
+                            <option value="buff">Buff</option>
+                            <option value="cinnamon">Cinnamon</option>
+                            <option value="gray">Gray</option>
+                            <option value="green">Green</option>
+                            <option value="pink">Pink</option>
+                            <option value="purple">Purple</option>
+                            <option value="red">Red</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <p class="label">Presence of Bruises: </p>
+                        <input type="radio" name="bruises" id="y" value="bruises" class="radio" required>
+                        <label for="y">Yes</label>
+                        <input type="radio" name="bruises" id="n" value="no" class="radio" required>
+                        <label for="n">No</label>
+                    </div>
+
+                    <div class="group">
+                        <label for="odor">Odour type: </label>
+                        <select name="odor" id="odor">
+                            <option value="almond">Almond</option>
+                            <option value="anise">Anise</option>
+                            <option value="creosote">Creosote</option>
+                            <option value="fishy">Fishy</option>
+                            <option value="foul">Foul</option>
+                            <option value="musty">Musty</option>
+                            <option value="none">None</option>
+                            <option value="pungent">Pungent</option>
+                            <option value="spicy">Spicy</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="gill-attachment">Gill-attachment: </label>
+                        <select name="gill-attachment" id="gill-attachment">
+                            <option value="attached">Attached</option>
+                            <option value="descending">Descending</option>
+                            <option value="free">Free</option>
+                            <option value="notched">Notched</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="gill-spacing">Gill-spacing: </label>
+                        <select name="gill-spacing" id="gill-spacing">
+                            <option value="close">Close</option>
+                            <option value="crowded">Crowded</option>
+                            <option value="distant">Distant</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <p class="label">Gill-size: </p>
+                        <input type="radio" name="gill-size" id="broad" value="broad" class="radio" required>
+                        <label for="broad">Broad</label>
+                        <input type="radio" name="gill-size" id="narrow" value="narrow" class="radio" required>
+                        <label for="narrow">Narrow</label>
+                    </div>
+
+                    <div class="group">
+                        <label for="gill-color">Gill-color: </label>
+                        <select name="gill-color" id="gill-color">
+                            <option value="black">Black</option>
+                            <option value="brown">Brown</option>
+                            <option value="buff">Buff</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="gray">Gray</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
+                            <option value="pink">Pink</option>
+                            <option value="purple">Purple</option>
+                            <option value="red">Red</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <p class="label">Stalk-shape: </p>
+                        <input type="radio" name="stalk-shape" id="e" value="enlarging" class="radio" required>
+                        <label for="e">Enlarging</label>
+                        <input type="radio" name="stalk-shape" id="t" value="tapering" class="radio" required>
+                        <label for="t">Tapering</label>
+                    </div>
+
+                    <div class="group">
+                        <label for="stalk-root">Stalk-Root: </label>
+                        <select name="stalk-root" id="stalk-root">
+                            <option value="bulbous">Bulbous</option>
+                            <option value="club">Club</option>
+                            <option value="cup">Cup</option>
+                            <option value="equal">Equal</option>
+                            <option value="rhizomorphs">Rhizomorphs</option>
+                            <option value="rooted">Rooted</option>
+                            <option value="missing">Missing</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <div class="group">
+                        <label for="stalk-surface-above-ring">Stalk-surface type above ring: </label>
+                        <select name="stalk-surface-above-ring" id="stalk-surface-above-ring">
+                            <option value="fibrous">Fibrous</option>
+                            <option value="scaly">Scaly</option>
+                            <option value="silky">Silky</option>
+                            <option value="smooth">Smooth</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="stalk-surface-below-ring">Stalk-surface type below ring: </label>
+                        <select name="stalk-surface-below-ring" id="stalk-surface-below-ring">
+                            <option value="fibrous">Fibrous</option>
+                            <option value="scaly">Scaly</option>
+                            <option value="silky">Silky</option>
+                            <option value="smooth">Smooth</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="stalk-color-above-ring">Stalk-color above ring: </label>
+                        <select name="stalk-color-above-ring" id="stalk-color-above-ring">
+                            <option value="brown">Brown</option>
+                            <option value="buff">Buff</option>
+                            <option value="cinnamon">Cinnamon</option>
+                            <option value="gray">Gray</option>
+                            <option value="orange">Orange</option>
+                            <option value="pink">Pink</option>
+                            <option value="red">Red</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="stalk-color-below-ring">Stalk-color below ring: </label>
+                        <select name="stalk-color-below-ring" id="stalk-color-below-ring">
+                            <option value="brown">Brown</option>
+                            <option value="buff">Buff</option>
+                            <option value="cinnamon">Cinnamon</option>
+                            <option value="gray">Gray</option>
+                            <option value="orange">Orange</option>
+                            <option value="pink">Pink</option>
+                            <option value="red">Red</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <p class="label">Veil-type: </p>
+                        <input type="radio" name="veil-type" id="p" value="partial" class="radio" required>
+                        <label for="p">Partial</label>
+                        <input type="radio" name="veil-type" id="u" value="universal" class="radio" required>
+                        <label for="u">Universal</label>
+                    </div>
+
+                    <div class="group">
+                        <label for="veil-color">Veil-color: </label>
+                        <select name="veil-color" id="veil-color">
+                            <option value="brown">Brown</option>
+                            <option value="orange">Orange</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="ring-number">Rings count: </label>
+                        <select name="ring-number" id="ring-number">
+                            <option value="none">None</option>
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="ring-type">Ring-type: </label>
+                        <select name="ring-type" id="ring-type">
+                            <option value="cobwebby">Cobwebby</option>
+                            <option value="evanescent">Evanescent</option>
+                            <option value="flaring">Flaring</option>
+                            <option value="large">Large</option>
+                            <option value="none">None</option>
+                            <option value="pendant">Pendant</option>
+                            <option value="sheathing">Sheathing</option>
+                            <option value="zone">Zone</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="spore-print-color">Spore-print-color: </label>
+                        <select name="spore-print-color" id="spore-print-color">
+                            <option value="black">Black</option>
+                            <option value="brown">Brown</option>
+                            <option value="buff">Buff</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
+                            <option value="purple">Purple</option>
+                            <option value="white">White</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="population">Population category: </label>
+                        <select name="population" id="population">
+                            <option value="abundant">Abundant</option>
+                            <option value="clustered">Clustered</option>
+                            <option value="numerous">Numerous</option>
+                            <option value="scattered">Scattered</option>
+                            <option value="several">Several</option>
+                            <option value="solitary">Solitary</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label for="habitat">Habitat category: </label>
+                        <select name="habitat" id="habitat">
+                            <option value="grasses">Grasses</option>
+                            <option value="leaves">Leaves</option>
+                            <option value="meadows">Meadows</option>
+                            <option value="paths">Paths</option>
+                            <option value="urban">Urban</option>
+                            <option value="waste">Wastelands</option>
+                            <option value="woods">Woods</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="predict">Predict</button>
+        </div>
+    </form>
+{% endblock %}
