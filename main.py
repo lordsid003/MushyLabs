@@ -141,3 +141,6 @@ def about():
 @app.route("/api", methods=["GET"])
 def chart():
     return jsonify(data)
+
+if __name__ == "__main__":
+           app.run()
